@@ -1,16 +1,11 @@
-# Pip.WebUI.Layouts Changelog
+# Pip.WebUI.Files Changelog
 
-## <a name="0.0.0"></a> 0.0.0 (2017-01-09)
+## <a name="0.0.0"></a> 0.0.0 (2017-01-10)
 
-Initial release with layouts: appbar, sidenav, rightnav, card, document, tiles.
+Initial release with upload file service
 
 ### Features
-* **appbar**: application bar places on top and shows navigation information
-* **side nav**: side nav places on left side and shows navigation information
-* **right nav**: side nav places on right side and shows navigation or additional information
-* **card**: card layout that shows content in a card in the center of page
-* **document**: document layout that show content with fixed width
-* **tiles**: tiles layout
+* **upload file service**: serves for uploading blob file to server
 
 ### Breaking Changes
 No breaking changes in this version

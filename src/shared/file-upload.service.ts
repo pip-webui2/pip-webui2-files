@@ -18,7 +18,7 @@ export class PipFileUploadService {
     ) { }
 
 
-    public uploadFiles(url: string, collection: any[], session_id: string = null): Observable<any> {
+    public uploadFiles(url: string, collection: any[],headers: any = {}): Observable<any> {
         let result$: Subject<any> = new Subject<any>();
         let result: any = {ids: []};
 
@@ -33,9 +33,7 @@ export class PipFileUploadService {
                         }
                     }
                 },
-                headers: {
-                    'x-session-id': session_id
-                }
+                headers: headers
             }).subscribe((response: any) => {
                 result.ids.push(response.data);
                 callback();

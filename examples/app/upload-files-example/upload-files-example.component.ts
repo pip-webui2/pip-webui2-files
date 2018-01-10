@@ -10,7 +10,9 @@ import { PipFileUploadService } from '../pip-webui2-files';
 export class UploadFilesExampleComponent implements OnInit {
     private files: any[] = [];
     private url: string = 'http://tracker.pipservices.net:8080/api/v1/blobs';
-    private sessionId: string = '7501b38b1cea42f2b0d34d282b701e5c';
+    private headers: any =  {
+        'x-session-id':'7501b38b1cea42f2b0d34d282b701e5c'
+    };
     private blobId: string = 'a0573d87408c4e6ebb93ff75569a821b';
 
     constructor(
@@ -42,7 +44,7 @@ export class UploadFilesExampleComponent implements OnInit {
     }
 
     private uploadFiles() {
-        this.fileUploadService.uploadFiles(this.url /* + '/' + this.blobId*/, this.files, this.sessionId).subscribe(
+        this.fileUploadService.uploadFiles(this.url /* + '/' + this.blobId*/, this.files, this.headers).subscribe(
             (result: any) => {
                 console.log('res', result);
             }
