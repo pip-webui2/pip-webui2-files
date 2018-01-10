@@ -1,0 +1,39 @@
+<mat-sidenav-container class="content" *ngIf="list">
+    <mat-sidenav #sidenav>
+        <examples-list [list]="list" [selectedItemIndex]="listIndex" (selectedItemIndexChange)="onListItemIndexChanged($event);">
+        </examples-list>
+    </mat-sidenav>
+
+    <mat-toolbar color="primary" class="mat-elevation-z6 example-appbar">
+        <span fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
+            <button mat-icon-button *ngIf="activeMediaQuery" >
+                <mat-icon (click)="sidenav.open()">reorder</mat-icon>
+            </button>
+            <span fxFlex="grow" class="pointer">{{app}}</span>
+        <mat-form-field>
+            <mat-select [(ngModel)]="theme" (ngModelChange)="changeTheme($event)">
+                <mat-option *ngFor="let theme of themes" [value]="theme">
+                    {{themesLocalNames[theme.name]}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </span>
+    </mat-toolbar>
+
+    <div fxLayout="row" style="height: calc(100% - 68px);">
+        <examples-list *ngIf="!activeMediaQuery" class="mat-elevation-z6 nav" [list]="list" [selectedItemIndex]="listIndex" (selectedItemIndexChange)="onListItemIndexChanged($event)">
+        </examples-list>
+        <div fxFlex="grow" 
+             style="width: calc(100% - 300px); overflow: auto">
+            <mat-toolbar color="primary" *ngIf="list[listIndex]">
+                <span fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
+                    {{list[listIndex].name}}
+                </span>
+            </mat-toolbar>
+            <div class="router">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+
+</mat-sidenav-container>
