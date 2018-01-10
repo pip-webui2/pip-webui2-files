@@ -17,8 +17,7 @@ export class UploadFilesExampleComponent implements OnInit {
         public fileUploadService: PipFileUploadService
     ) { }
 
-    ngOnInit() { 
-    }
+    ngOnInit() { }
 
     changeFile(e) {
         this.files = [];
