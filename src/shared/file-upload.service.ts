@@ -24,6 +24,7 @@ export class PipFileUploadService {
 
         async.eachOf(collection, (item, index, callback) => {
             let fd: FormData = new FormData();
+            fd.append('item.fileName', item.file, item.fileName);
 
             this.http.post(url, fd, <any>{
                 uploadEventHandlers: {
