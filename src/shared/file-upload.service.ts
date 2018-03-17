@@ -36,7 +36,8 @@ export class PipFileUploadService {
                 },
                 headers: headers
             }).subscribe((response: any) => {
-                result.ids.push(response.data);
+                let data = response.json();
+                result.ids.push(data.id);
                 callback();
             })
         }, (error) => {
