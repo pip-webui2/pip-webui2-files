@@ -9,6 +9,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { build$ } from 'protractor/built/element';
 
 @Injectable()
 export class PipFileUploadService {
@@ -18,9 +19,9 @@ export class PipFileUploadService {
     ) { }
 
 
-    public uploadFiles(url: string, collection: any[],headers: any = {}): Observable<any> {
+    public uploadFiles(url: string, collection: any[], headers: any = {}): Observable<any> {
         let result$: Subject<any> = new Subject<any>();
-        let result: any = {ids: []};
+        let result: any = { ids: [] };
 
         async.eachOf(collection, (item, index, callback) => {
             let fd: FormData = new FormData();
@@ -41,7 +42,13 @@ export class PipFileUploadService {
                 callback();
             })
         }, (error) => {
-           result$.next(result); 
+            if (collection.length == 0) {
+                setTimeout(() => {
+                    result$.next(result);
+                }, 50)
+            } else {
+                result$.next(result);
+            }
         });
 
         return result$;
