@@ -40,8 +40,13 @@ export class PipFileUploadService {
                 let data = response.json();
                 result.ids[index] = data.id;
                 callback();
+            }, (error: any) => {
+                callback(error);
             })
         }, (error) => {
+            if (error) {
+                result$.error(error);
+            } else
             if (collection.length == 0) {
                 setTimeout(() => {
                     result$.next(result);
