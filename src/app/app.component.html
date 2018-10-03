@@ -1,0 +1,50 @@
+<mat-sidenav-container class="content" *ngIf="list">
+  <mat-sidenav #sidenav>
+    <examples-list [list]="list" [selectedItemIndex]="listIndex" (selectedItemIndexChange)="onListItemIndexChanged($event);">
+    </examples-list>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary" class="mat-elevation-z6 example-appbar">
+    <span fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
+      <button mat-icon-button *ngIf="activeMediaQuery">
+        <mat-icon (click)="sidenav.open()">reorder</mat-icon>
+      </button>
+      <span fxFlex="grow" class="pointer">{{app}}</span>
+      <button mat-icon-button [matMenuTriggerFor]="menuLang" style="margin-right: 8px">
+        <mat-icon>translate</mat-icon>
+      </button>
+      <mat-menu #menuLang="matMenu">
+        <button *ngFor="let lang of langs" mat-menu-item (click)="changeLanguage(lang)">
+          {{ lang | translate }}
+          <mat-icon *ngIf="lang === selectedLang" style="margin-bottom: 10px">check</mat-icon>
+        </button>
+      </mat-menu>
+      <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-right: 8px">
+        <mat-icon>format_color_fill</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button *ngFor="let theme of themes" mat-menu-item (click)="changeTheme(theme)">
+          {{ themesLocalNames[theme?.name] }}
+          <mat-icon *ngIf="theme === selectedTheme" style="margin-bottom: 10px">check</mat-icon>
+        </button>
+      </mat-menu>
+    </span>
+  </mat-toolbar>
+
+  <div fxLayout="row" style="height: calc(100% - 68px);">
+    <examples-list *ngIf="!activeMediaQuery" class="mat-elevation-z6 nav" [list]="list" [selectedItemIndex]="listIndex"
+                   (selectedItemIndexChange)="onListItemIndexChanged($event)">
+    </examples-list>
+    <div fxFlex="grow" style="width: calc(100% - 300px); overflow: auto">
+      <mat-toolbar color="primary" *ngIf="list[listIndex]">
+        <span fxLayout="row" fxLayoutAlign="start center" fxFlex="grow">
+          {{list[listIndex].name}}
+        </span>
+      </mat-toolbar>
+      <div class="router">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+
+</mat-sidenav-container>
