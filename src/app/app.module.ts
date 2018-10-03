@@ -13,7 +13,8 @@ import { UploadFilesExampleModule } from './upload-files-example/upload-files-ex
 
 export const CustomBreakPointsProvider = {
   provide: BREAKPOINTS,
-  useValue: [...DEFAULT_BREAKPOINTS]
+  useValue: [...DEFAULT_BREAKPOINTS],
+  multi: true
 };
 
 @NgModule({

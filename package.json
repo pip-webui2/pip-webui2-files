@@ -1,6 +1,6 @@
 {
   "name": "pip-webui2-files",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -27,7 +27,7 @@
     "@angular/router": "^6.1.0",
     "@ngx-translate/core": "^10.0.2",
     "core-js": "^2.5.4",
-    "pip-webui2-themes-temp": "0.0.2",
+    "pip-webui2-themes-temp": "^1.0.0-beta.2",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },

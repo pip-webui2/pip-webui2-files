@@ -44,8 +44,8 @@ export class AppComponent {
   public list: ExmapleListItem[] = [
     {
       name: 'Upload file service',
-      id: 'upload_file',
-      route: 'upload_file'
+      id: 'upload_files',
+      route: 'upload_files'
     }
   ];
   public listIndex = 0;
