@@ -5,7 +5,7 @@ import { UploadFilesExampleComponent } from './upload-files-example/upload-files
 
 const appRoutes: Routes = [
     { path: 'upload_files', component: UploadFilesExampleComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'upload_files' }
+    { path: '', pathMatch: 'full', redirectTo: 'upload_files' }
 ];
 
 @NgModule({
