@@ -3,7 +3,7 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { MatSidenav } from '@angular/material';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { PipThemesService, Theme } from 'pip-webui2-themes-temp';
+import { PipThemesService, Theme } from 'pip-webui2-themes';
 
 import { AppTranslations } from './app.strings';
 import { ExmapleListItem } from './examples-list/shared/ExampleListItem';
