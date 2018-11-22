@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { UploadFilesExampleModule } from './upload-files-example.module';
 import { UploadFilesExampleComponent } from './upload-files-example.component';
 
 describe('UploadFilesExampleComponent', () => {
@@ -8,9 +10,13 @@ describe('UploadFilesExampleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UploadFilesExampleComponent ]
+      imports: [
+        FlexLayoutModule,
+
+        UploadFilesExampleModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

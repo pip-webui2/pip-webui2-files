@@ -7,8 +7,8 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display "Files" in appbar', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to pip-webui2-files-app!');
+    expect(page.getParagraphText()).toEqual('Files');
   });
 });
