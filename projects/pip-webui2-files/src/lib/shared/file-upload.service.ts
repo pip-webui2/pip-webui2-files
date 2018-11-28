@@ -28,9 +28,9 @@ export class PipFileUploadService {
                         }
                     }
                 },
+                reportProgress: true,
                 headers: headers
-            }).subscribe((response: any) => {
-                const data = response.json();
+            }).subscribe((data: any) => {
                 result.ids[index] = data.id;
                 callback();
             }, (error: any) => {

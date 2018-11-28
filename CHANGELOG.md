@@ -40,3 +40,16 @@ No breaking changes in this version
 * Library tests works now. Run `npm run test:lib` to check it out;
 * Example tests works now. Run `npm run test` to check it out;
 * E2E tests works too. Run `npm run e2e` to check it out.
+
+## <a name="1.1.1"></a> 1.1.1 (2018-11-22)
+
+Fixing response
+
+### Features
+* **upload file service**: serves for uploading blob file to server
+
+### Breaking Changes
+No breaking changes in this version
+
+### Bug Fixes
+* Response doesn't call `.json` anymore.
