@@ -33,7 +33,7 @@ export const CustomBreakPointsProvider = {
     MatMenuModule,
     TranslateModule.forRoot(),
 
-    PipThemesModule,
+    PipThemesModule.forRoot(),
 
     AppRoutingModule,
     ExamplesListModule,
