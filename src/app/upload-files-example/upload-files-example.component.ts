@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ObservableMedia } from '@angular/flex-layout';
+import { MediaObserver } from '@angular/flex-layout';
 import { PipFileUploadService } from 'pip-webui2-files';
 
 @Component({
@@ -16,7 +16,7 @@ export class UploadFilesExampleComponent implements OnInit {
   private blobId = 'a0573d87408c4e6ebb93ff75569a821b';
 
   constructor(
-    public media: ObservableMedia,
+    public media: MediaObserver,
     public fileUploadService: PipFileUploadService
   ) { }
 

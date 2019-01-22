@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { MatSidenav } from '@angular/material';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -37,8 +37,10 @@ export class AppComponent {
     'pip-black-theme': 'Black',
     'bootbarn-warm-theme': 'Bootbarn Warm',
     'bootbarn-cool-theme': 'Bootbarn Cool',
-    'bootbarn-mono-theme': 'Bootbarn Mono'
-
+    'bootbarn-mono-theme': 'Bootbarn Mono',
+    'mst-light-theme': 'MST Light',
+    'mst-dark-theme': 'MST Dark',
+    'mst-mono-theme': 'MST Mono',
   };
 
   public list: ExmapleListItem[] = [
@@ -54,7 +56,7 @@ export class AppComponent {
   public constructor(
     private themeService: PipThemesService,
     private router: Router,
-    public media: ObservableMedia,
+    public media: MediaObserver,
     private translate: TranslateService
   ) {
     this.selectedTheme = this.themeService.selectedTheme;
@@ -66,7 +68,7 @@ export class AppComponent {
     this.translate.setTranslation('en', AppTranslations.en, true);
     this.translate.setTranslation('ru', AppTranslations.ru, true);
 
-    media.subscribe((change: MediaChange) => {
+    this.media.media$.subscribe((change: MediaChange) => {
       this.activeMediaQuery = change && change.mqAlias === 'xs' ? true : false;
       this.mode = change && change.mqAlias === 'xs' ? null : 'side';
     });
