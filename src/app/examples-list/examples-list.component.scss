@@ -3,7 +3,7 @@
     border-radius: 4px;
     font-family: Roboto;
     overflow: auto;
-    /deep/ .mat-select-underline {
+    ::ng-deep .mat-select-underline {
         display: none;
         background-color: none;
         height: 0px;
